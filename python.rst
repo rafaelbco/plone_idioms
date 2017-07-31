@@ -60,7 +60,7 @@ Alternatives
 Function docstrings
 -------------------
 
-Should follow PEP257_ fully complemented with the conventions explained in the examples. If something is not well explained,
+Should fully follow PEP257_, complemented with the conventions explained in the examples. If something is not well explained,
 adapt from `Google docstrings style`_.
 
 Examples
@@ -136,8 +136,8 @@ Example ommiting obvious information:
 Rationale
 ^^^^^^^^^
 
-- Follow PEP257_ fully.
-- Keep consistency with current style which is based on examples given in PEP257_.
+- Fully follow PEP257_.
+- Keep consistency with current style, which is based on examples given in PEP257_.
 - Borrow ideas from `Google docstrings style`_.
 - Use PEP484_ to specify types, when desired.
 - Nothing is required. You can ommit what is obvious.
