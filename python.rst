@@ -57,8 +57,8 @@ Alternatives
   To be consistent with ``dict`` methods ``iterkeys``, ``itervalues`` and so on.
   
   
-Function docstrings
--------------------
+Functions and methods docstrings
+--------------------------------
 
 Should fully follow PEP257_, complemented with the conventions explained in the examples. If something is not well explained,
 adapt from `Google docstrings style`_.
@@ -110,6 +110,8 @@ Full example:
        """
        return '{}{}'.format((label or ''), foo + bar)
 
+For methods, the ``self`` argument should not be mentioned.
+
 Anything can be ommited, if it's obvious: type specs, arguments descriptions (sometimes the name is sufficient). Sometimes
 only the function descriptions is sufficent. And sometimes the entire dosctring is superfulous.
 
@@ -142,7 +144,66 @@ Rationale
 - Use PEP484_ to specify types, when desired.
 - Nothing is required. You can ommit what is obvious.
 - Do not repeat what is in the function signature, eg: default values.
-  
+
+
+Naming of functions
+-------------------
+
+Should always begin with a verb. 
+
+Exception: conversion functions. In this case the ``old_to_new`` pattern should be used.
+
+If the function just obtain a "thing" without much computation involved, then it should be named ``get_thing``.
+If an expensive computation is involved then it should be named ``make_thing`` or ``calculate_thing``, whichever makes more 
+sense in the context.
+
+.. IMPORTANT::
+   For methods, using the ``get_thing`` pattern is NOT recommended. Accessors/mutators are unpythonic (see PEP8). 
+   Just use instance attributes directly or properties. In short: ``obj.thing`` is better than ``obj.get_thing()``.
+
+Examples
+^^^^^^^^
+
+.. code-block:: python
+   
+   def get_thing():
+       return 'the thing'
+   
+   def make_thing():
+       # Complex process to generate the thing...
+       return 'the created thing'
+   
+   def miles_to_kilometers(miles):
+       # Conversion function.
+       return 'converted value'
+   
+   class MyClass(object):
+      
+       def calculate_foo(arg):
+           return 'calculated calue'
+       
+       @property
+       def thing(self):
+           # No `get_thing()` here.
+           return 'the thing'
+
+Rationale
+^^^^^^^^^
+
+Many advise against the use of ``get_thing()`` style, in favor of just ``thing()``. We think that naming functions as 
+verbs and variables as nouns is better for consistency. Also, see this example:
+
+.. code-block:: python
+   
+   # Store the value in a variable, so you can use it multiple times after, without calling the function again.
+   thing = get_thing()
+   
+   # If the function was named `thing()` then we would have to choose a non-obvious name for the variable:
+   a_thing = thing()
+   my_thing = thing()
+   t = thing()
+   
+
 .. References:
 
 .. _PEP8: https://www.python.org/dev/peps/pep-0008
