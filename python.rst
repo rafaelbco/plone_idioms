@@ -146,8 +146,8 @@ Rationale
 - Do not repeat what is in the function signature, eg: default values.
 
 
-Naming of functions
--------------------
+Naming of functions and methods
+-------------------------------
 
 Should always begin with a verb. 
 
