@@ -165,7 +165,7 @@ Specific advice:
      For methods, using the ``get_thing`` pattern is NOT recommended. Accessors/mutators are unpythonic (see PEP8). 
      Just use instance attributes directly or properties. In short: ``obj.thing`` is better than ``obj.get_thing()``.
 
-- Functions returning boolean values should be named like ``is_predicate`` when possible.
+- Functions returning boolean values should be named like ``is_something`` or ``has_something`` whenever is possible.
 
 Examples
 ^^^^^^^^
@@ -190,6 +190,9 @@ Examples
        
        def is_closed(self):
            return True
+       
+       def has_person(self, person_id):
+           return bar in self._people
        
        @property
        def thing(self):
