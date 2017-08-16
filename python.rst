@@ -151,15 +151,21 @@ Naming of functions and methods
 
 Should always begin with a verb. 
 
-Exception: conversion functions. In this case the ``old_to_new`` pattern should be used.
+Exceptions: 
 
-If the function just obtain a "thing" without much computation involved, then it should be named ``get_thing``.
-If an expensive computation is involved then it should be named ``make_thing`` or ``calculate_thing``, whichever makes more 
-sense in the context.
+- Conversion functions. In this case it should be named like ``old_to_new``.
 
-.. IMPORTANT::
-   For methods, using the ``get_thing`` pattern is NOT recommended. Accessors/mutators are unpythonic (see PEP8). 
-   Just use instance attributes directly or properties. In short: ``obj.thing`` is better than ``obj.get_thing()``.
+Specific advice:
+
+- If the function just obtain a "thing" without much computation involved, then it should be named ``get_thing``.
+  If an expensive computation is involved then it should be named ``make_thing`` or ``calculate_thing``, whichever makes 
+  more sense in the context.
+
+  .. IMPORTANT::
+     For methods, using the ``get_thing`` pattern is NOT recommended. Accessors/mutators are unpythonic (see PEP8). 
+     Just use instance attributes directly or properties. In short: ``obj.thing`` is better than ``obj.get_thing()``.
+
+- Functions returning boolean values should be named like ``is_predicate`` when possible.
 
 Examples
 ^^^^^^^^
@@ -179,8 +185,11 @@ Examples
    
    class MyClass(object):
       
-       def calculate_foo(arg):
-           return 'calculated calue'
+       def calculate_foo(self, arg):
+           return 'calculated value'
+       
+       def is_closed(self):
+           return True
        
        @property
        def thing(self):
