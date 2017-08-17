@@ -203,7 +203,10 @@ Rationale
 ^^^^^^^^^
 
 Many advise against the use of ``get_thing()`` style, in favor of just ``thing()``. We think that naming functions as 
-verbs and variables as nouns is better for consistency. Also, see this example:
+verbs and variables as nouns is better for consistency. Otherwise everytime you encounter a noun (``thing``) you have to 
+find out if its a variable or a function.
+
+Also, see this example:
 
 .. code-block:: python
    
