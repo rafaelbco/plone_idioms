@@ -30,6 +30,7 @@ Examples
 
 .. NOTE::
    The phrasing of the docstrings is based on ```dict.iteritems`` documentation`__ and is also recommended.
+   See also `Functions and methods docstrings`_.
    
 __ https://docs.python.org/2/library/stdtypes.html#dict.iteritems
 
@@ -135,6 +136,26 @@ Example ommiting obvious information:
        """
        return '{}{}'.format((label or ''), foo + bar)
 
+Generator:
+
+
+.. code-block:: python
+
+   def iter_even_numbers(max):
+       """Return an iterator over the even numbers up to a limit.
+       
+       Arguments:
+       max (int): Upper limit.
+       
+       Yield (int): Even number.
+       """
+       for i in xrange(max + 1):
+           if i % 2 == 0:
+               yield i
+
+Note that the Return section is replaced by a Yield section. The phrasing of the summary (first line) is based on 
+``dict.iteritems`` and is recommended.
+
 Rationale
 ^^^^^^^^^
 
@@ -165,7 +186,11 @@ Specific advice:
      For methods, using the ``get_thing`` pattern is NOT recommended. Accessors/mutators are unpythonic (see PEP8). 
      Just use instance attributes directly or properties. In short: ``obj.thing`` is better than ``obj.get_thing()``.
 
-- Functions returning boolean values should be named like ``is_something`` or ``has_something`` whenever is possible.
+- Good names for functions returning boolean values, that should be used whenever is possible:
+
+  - ``is_something``
+  - ``has_thing(container, thing)`` or ``container.has_thing(thing)``
+  - ``can_something``: Good for permissions, eg. ``can_edit``.
 
 Examples
 ^^^^^^^^
