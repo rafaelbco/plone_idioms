@@ -30,7 +30,7 @@ Examples
 
 .. NOTE::
    The phrasing of the docstrings is based on ```dict.iteritems`` documentation`__ and is also recommended.
-   See also `Functions and methods docstrings`_.
+   See also the generator example in `Functions and methods docstrings`_.
    
 __ https://docs.python.org/2/library/stdtypes.html#dict.iteritems
 
