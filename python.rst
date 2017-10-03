@@ -104,7 +104,7 @@ Full example:
        Return (str): The computed furfles value.
            If a second line is necessary then it's identend.
            
-       Raises:
+       Raise:
        ValueError -- If some condition is not met. 
        RuntimeError -- If other condition is not met.
            Second line is indented.
