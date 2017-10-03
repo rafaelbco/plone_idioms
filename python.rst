@@ -105,8 +105,8 @@ Full example:
            If a second line is necessary then it's identend.
            
        Raises:
-       `ValueError` -- If some condition is not met. 
-       `RuntimeError` -- If other condition is not met.
+       ValueError -- If some condition is not met. 
+       RuntimeError -- If other condition is not met.
            Second line is indented.
        """
        return '{}{}'.format((label or ''), foo + bar)
